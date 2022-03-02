@@ -36,3 +36,14 @@ text = corpus
 sentence_list = nltk.sent_tokenize(text) # sent_tokenize splits doc into sentences
 
 print(sentence_list)
+
+def greeting(text):
+    text = text.lower()
+    
+    bot_greetings = ['hello', 'hi', 'hey', 'hey there', 'greetings']
+    
+    user_greetings = ['hi', 'hello', 'hey']
+    
+    for word in text.split():
+        if word in user_greetings:
+            return random.choice(bot_greetings)
