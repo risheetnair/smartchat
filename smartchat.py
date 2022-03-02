@@ -22,7 +22,7 @@ nltk.download('punkt', quiet=True)
 
 # Get article
 article = Article(
-    'https://www.cdc.gov/stroke/signs_symptoms.htm')
+    'https://www.webmd.com/heart-disease/guide/heart-disease-heart-attacks')
 article.download()
 article.parse()
 article.nlp()
