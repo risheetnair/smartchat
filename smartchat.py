@@ -77,4 +77,13 @@ def bot_response(user_input):
             bot_response += ' ' + sentence_list[index[i]]
             response_flag = 1
             j += 1
+        if j > 2:
+            break
+        
+    if response_flag == 0:
+        bot_response += ' ' + "I apologize, I don't understand."
+        
+    sentence_list.remove(user_input)
+    
+    return bot_response
     
