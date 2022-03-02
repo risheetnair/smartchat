@@ -29,4 +29,10 @@ article.nlp()
 corpus = article.text
 
 # Print text from article
-print(corpus)
+# print(corpus)
+
+# Tokenization
+text = corpus
+sentence_list = nltk.sent_tokenize(text) # sent_tokenize splits doc into sentences
+
+print(sentence_list)
