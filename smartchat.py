@@ -67,4 +67,14 @@ def bot_response(user_input):
     cm = CountVectorizer().fit_transform(sentence_list) # transform list into count matrix
     similarity_scores = cosine_similarity(cm[-1], cm) # compare last sentence of user input to entire cm
     similarity_scores_list = similarity_scores.flatten()
-    index = index_sort(similarity_scores_list)
+    index = index_sort(similarity_scores_list) # calculate where highest values are in similarity scores list
+    index = index[1:] # include values that are not itself
+    response_flag = 0
+    
+    j = 0
+    for i in range(len(index)):
+        if similarity_scores_list[index[i]] > 0.0: # found a similarity
+            bot_response += ' ' + sentence_list[index[i]]
+            response_flag = 1
+            j += 1
+    
