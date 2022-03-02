@@ -47,7 +47,19 @@ def greeting(text):
     for word in text.split():
         if word in user_greetings:
             return random.choice(bot_greetings)
-        
+     
+def index_sort(lst):
+    length = len(lst)
+    list_index = list(range(length))
+    
+    x = lst
+    for i in range(length):
+        for j in range(length):
+            if x[list_index[i]] > x[list_index[j]]:
+                list_index[i], list_index[j] = list_index[j], list_index[i]
+                
+    return list_index
+   
 def bot_response(user_input):
     user_input = user_input.lower()
     sentence_list.append(user_input)
