@@ -35,7 +35,7 @@ corpus = article.text
 text = corpus
 sentence_list = nltk.sent_tokenize(text) # sent_tokenize splits doc into sentences
 
-print(sentence_list)
+# print(sentence_list)
 
 def greeting(text):
     text = text.lower()
@@ -87,3 +87,16 @@ def bot_response(user_input):
     
     return bot_response
     
+print('Doc Bot: I am Doc Bot. I will answer your questions about strokes. If you want to exit, type bye.')
+
+exit_list = ['exit', 'see you later', 'bye', 'quit', 'break']
+
+while True:
+    user_input = input()
+    if user_input.lower() in exit_list:
+        print('Doc Bot: See you later.')
+        break
+    if greeting(user_input) != None:
+        print('Doc Bot: ' + greeting(user_input))
+    else:
+        print('Doc Bot: ' + bot_response(user_input))
