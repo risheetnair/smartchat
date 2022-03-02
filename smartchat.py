@@ -47,3 +47,12 @@ def greeting(text):
     for word in text.split():
         if word in user_greetings:
             return random.choice(bot_greetings)
+        
+def bot_response(user_input):
+    user_input = user_input.lower()
+    sentence_list.append(user_input)
+    bot_response = ''
+    cm = CountVectorizer().fit_transform(sentence_list) # transform list into count matrix
+    similarity_scores = cosine_similarity(cm[-1], cm) # compare last sentence of user input to entire cm
+    similarity_scores_list = similarity_scores.flatten()
+    index = index_sort(similarity_scores_list)
